@@ -12,10 +12,6 @@ Formulário conversacional para entender objetivos, dificuldades e dúvidas dos 
 
 Depois disso, cada envio será adicionado à aba `Respostas`.
 
-## Publicação
-
-O projeto inclui um workflow do GitHub Pages. Em `Settings > Pages`, selecione `GitHub Actions` como origem da publicação.
-
 ## Desenvolvimento local
 
 Sirva a pasta `dist` com qualquer servidor HTTP estático. Exemplo:
