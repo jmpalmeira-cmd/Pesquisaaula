@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pesquisa breve para preparar uma aula mais alinhada ao momento da turma." />
+    <meta name="theme-color" content="#101828" />
+    <title>Quero preparar essa aula pensando em você</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23101828'/%3E%3Cpath d='M17 19h30v20H29l-9 8v-8h-3z' fill='%23ff6b4a'/%3E%3Ccircle cx='26' cy='29' r='2' fill='white'/%3E%3Ccircle cx='32' cy='29' r='2' fill='white'/%3E%3Ccircle cx='38' cy='29' r='2' fill='white'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Voltar ao início">
+          <span class="brand-mark" aria-hidden="true">P</span>
+          <span>Pesquisa da aula</span>
+        </a>
+        <div class="progress-wrap" id="progressWrap" hidden>
+          <span class="progress-label" id="progressLabel">1 de 10</span>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="1" aria-label="Progresso da pesquisa">
+            <span class="progress-bar" id="progressBar"></span>
+          </div>
+        </div>
+      </header>
+
+      <section class="panel intro is-active" id="intro" aria-labelledby="introTitle">
+        <div class="eyebrow"><span></span> Leva cerca de 4 minutos</div>
+        <h1 id="introTitle">Quero preparar essa aula pensando em você.</h1>
+        <p>Antes da nossa aula, queria entender um pouco melhor o seu momento. Suas respostas vão me ajudar a preparar um conteúdo mais alinhado com o que vocês estão vivendo hoje.</p>
+        <button class="primary-button" id="startButton" type="button">
+          Vamos começar
+          <span aria-hidden="true">→</span>
+        </button>
+        <p class="privacy-note">Não existem respostas certas. Escreva do seu jeito.</p>
+      </section>
+
+      <form id="surveyForm" novalidate>
+        <section class="panel question-panel" id="questionPanel" aria-live="polite" hidden>
+          <div class="question-number" id="questionNumber">01</div>
+          <label class="question-title" id="questionTitle" for="answer"></label>
+          <p class="question-help" id="questionHelp"></p>
+          <textarea id="answer" name="answer" rows="4" placeholder="Escreva sua resposta aqui..." maxlength="2000" required></textarea>
+          <div class="field-meta">
+            <span id="fieldMessage">Conte com suas palavras.</span>
+            <span><span id="charCount">0</span>/2000</span>
+          </div>
+          <div class="actions">
+            <button class="back-button" id="backButton" type="button" aria-label="Voltar para a pergunta anterior">← Voltar</button>
+            <button class="primary-button" id="nextButton" type="submit">
+              Continuar
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+          <p class="shortcut"><kbd>Ctrl</kbd> + <kbd>Enter</kbd> para continuar</p>
+        </section>
+      </form>
+
+      <section class="panel success" id="success" hidden aria-labelledby="successTitle">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <div class="eyebrow"><span></span> Respostas enviadas</div>
+        <h2 id="successTitle">Obrigado por compartilhar.</h2>
+        <p>Agora consigo preparar uma aula mais próxima das suas dúvidas, desafios e objetivos.</p>
+      </section>
+
+      <section class="panel error-state" id="errorState" hidden aria-labelledby="errorTitle">
+        <div class="error-icon" aria-hidden="true">!</div>
+        <h2 id="errorTitle">Não conseguimos enviar agora.</h2>
+        <p>Suas respostas continuam salvas neste dispositivo. Tente novamente em alguns instantes.</p>
+        <button class="primary-button" id="retryButton" type="button">Tentar novamente</button>
+      </section>
+    </main>
+
+    <script src="./config.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
