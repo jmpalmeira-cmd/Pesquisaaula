@@ -112,7 +112,7 @@ function renderQuestion() {
   nextButton.firstChild.textContent = current === steps.length - 1 ? "Enviar respostas " : "Continuar ";
   clearError();
   animatePanel(questionPanel);
-  window.setTimeout(() => control.focus({ preventScroll: true }), 220);
+  window.setTimeout(() => control.focus(), 220);
 }
 
 function clearError() {

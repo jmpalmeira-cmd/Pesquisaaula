@@ -12,10 +12,14 @@
 
 * { box-sizing: border-box; }
 
-html { min-height: 100%; }
+html {
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   overflow-x: hidden;
   color: var(--ink);
@@ -28,7 +32,10 @@ body {
 }
 
 button, input, textarea { font: inherit; }
-button { -webkit-tap-highlight-color: transparent; }
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
 
 .ambient {
   position: fixed;
@@ -43,8 +50,9 @@ button { -webkit-tap-highlight-color: transparent; }
 .shell {
   width: min(100% - 2rem, 880px);
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0 auto;
-  padding: 1.5rem 0 3rem;
+  padding: 1.5rem 0 max(3rem, env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
 }
@@ -188,6 +196,7 @@ h2 { font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.06; }
 }
 
 .question-help { min-height: 1.4rem; margin: .8rem 0 1.5rem; color: var(--muted); line-height: 1.55; }
+.question-help:empty { display: none; }
 
 input[type="text"], input[type="tel"], textarea {
   width: 100%;
@@ -227,13 +236,31 @@ input.has-error, textarea.has-error { border-bottom-color: #d92d20; }
 [hidden] { display: none !important; }
 
 @media (max-width: 640px) {
-  .shell { width: min(100% - 1rem, 880px); padding-top: .65rem; }
-  .topbar { padding: 0 .5rem; }
+  .shell {
+    width: 100%;
+    min-height: 100dvh;
+    padding: max(.65rem, env(safe-area-inset-top)) .5rem max(1rem, env(safe-area-inset-bottom));
+  }
+  .topbar { min-height: 3.25rem; padding: 0 .5rem; gap: .75rem; }
   .brand > span:last-child { display: none; }
-  .progress-wrap { width: min(68vw, 260px); }
+  .progress-wrap { width: min(72vw, 260px); gap: .6rem; }
   .panel { padding: 2rem 1.25rem; border-radius: 1.5rem; }
-  .intro { padding-top: 2.6rem; padding-bottom: 2.6rem; }
-  .actions { margin-top: 1.5rem; }
+  .intro { padding-top: 2.25rem; padding-bottom: 2.25rem; }
+  h1 { font-size: clamp(2rem, 10.5vw, 2.75rem); }
+  .intro > p, .success > p, .error-state > p { margin: 1.25rem 0 1.75rem; line-height: 1.6; }
+  .question-number { width: 2.85rem; height: 2.85rem; margin-bottom: 1rem; border-radius: .9rem .9rem .9rem .25rem; }
+  .question-title { font-size: clamp(1.55rem, 7.5vw, 2.15rem); line-height: 1.16; }
+  .question-help { min-height: 0; margin: .65rem 0 1rem; }
+  textarea { min-height: clamp(6.5rem, 24dvh, 8rem); }
+  .actions { gap: .75rem; margin-top: 1.35rem; }
+  #nextButton { min-width: 9.5rem; }
+}
+
+@media (max-width: 380px) {
+  .shell { padding-right: .35rem; padding-left: .35rem; }
+  .panel { padding: 1.5rem 1rem; border-radius: 1.25rem; }
+  .primary-button, .back-button { padding-right: 1rem; padding-left: 1rem; }
+  .primary-button { gap: .75rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
