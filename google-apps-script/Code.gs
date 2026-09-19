@@ -4,6 +4,8 @@ const SHEET_NAME = "Respostas";
 const HEADERS = [
   "Data e hora",
   "ID da resposta",
+  "Nome",
+  "Celular",
   "1. Principal resultado",
   "2. Principal impedimento",
   "3. Maior frustração",
@@ -38,6 +40,8 @@ function doPost(event) {
     sheet.appendRow([
       payload.submittedAt ? new Date(payload.submittedAt) : new Date(),
       payload.responseId || Utilities.getUuid(),
+      payload.name || "",
+      payload.phone || "",
       ...Array.from({ length: 10 }, (_, index) => answers[`q${index + 1}`] || ""),
     ]);
 

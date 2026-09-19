@@ -1,16 +1,12 @@
 # Pesquisaaula
 
-Formulário conversacional para entender objetivos, dificuldades e dúvidas dos participantes antes de uma aula. A experiência mostra uma pergunta por vez, salva o rascunho no dispositivo e envia as respostas para uma planilha do Google Sheets.
+Formulário conversacional para identificar os participantes e entender objetivos, dificuldades e dúvidas antes de uma aula. A experiência mostra uma pergunta por vez, salva o rascunho no dispositivo e envia nome, celular e respostas para uma planilha do Google Sheets.
 
-## Configurar o Google Sheets
+## Respostas
 
-1. Abra a [planilha de respostas](https://docs.google.com/spreadsheets/d/1pK3i2xA8cpyUVPYDfhzVhCj0zqxiB6_9rMhnKYNCSWQ/edit).
-2. Em `Extensões > Apps Script`, cole o conteúdo de `google-apps-script/Code.gs`.
-3. Clique em `Implantar > Nova implantação > App da Web`.
-4. Execute como você e permita acesso para qualquer pessoa.
-5. Copie a URL terminada em `/exec` e cole em `dist/config.js` no campo `sheetsEndpoint`.
+O formulário já está integrado à [planilha de respostas](https://docs.google.com/spreadsheets/d/1pK3i2xA8cpyUVPYDfhzVhCj0zqxiB6_9rMhnKYNCSWQ/edit). Cada envio é adicionado automaticamente à aba `Respostas`, com data e hora, identificador, nome, celular e as dez respostas.
 
-Depois disso, cada envio será adicionado à aba `Respostas`.
+Se `google-apps-script/Code.gs` for alterado, publique uma nova versão pelo menu `Implantar > Gerenciar implantações` do Apps Script.
 
 ## Desenvolvimento local
 

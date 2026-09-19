@@ -27,7 +27,7 @@ body {
   font-family: "DM Sans", system-ui, sans-serif;
 }
 
-button, textarea { font: inherit; }
+button, input, textarea { font: inherit; }
 button { -webkit-tap-highlight-color: transparent; }
 
 .ambient {
@@ -191,10 +191,8 @@ h2 { font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.06; }
 
 .question-help { min-height: 1.4rem; margin: .8rem 0 1.5rem; color: var(--muted); line-height: 1.55; }
 
-textarea {
+input[type="text"], input[type="tel"], textarea {
   width: 100%;
-  min-height: 9rem;
-  resize: vertical;
   padding: 1rem 0 .8rem;
   color: var(--ink);
   background: transparent;
@@ -205,9 +203,11 @@ textarea {
   line-height: 1.6;
 }
 
-textarea::placeholder { color: #98a2b3; }
-textarea:focus { border-bottom-color: var(--aqua); outline: none; }
-textarea.has-error { border-bottom-color: #d92d20; }
+textarea { min-height: 9rem; resize: vertical; }
+input[type="text"], input[type="tel"] { min-height: 4.2rem; }
+input::placeholder, textarea::placeholder { color: #98a2b3; }
+input:focus, textarea:focus { border-bottom-color: var(--aqua); outline: none; }
+input.has-error, textarea.has-error { border-bottom-color: #d92d20; }
 
 .field-meta { display: flex; justify-content: space-between; gap: 1rem; margin-top: .6rem; color: var(--muted); font-size: .82rem; }
 .field-meta .error { color: #b42318; }
