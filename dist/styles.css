@@ -166,8 +166,6 @@ h2 { font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.06; }
 .back-button { color: var(--muted); background: transparent; }
 .back-button:hover { color: var(--ink); background: #f2f4f7; }
 
-.privacy-note { margin: 1.25rem 0 0 !important; font-size: .9rem !important; }
-
 .question-panel { position: relative; }
 .question-number {
   width: 3.25rem;
