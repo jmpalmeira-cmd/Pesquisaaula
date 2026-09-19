@@ -119,7 +119,7 @@ function clearError() {
   answer.classList.remove("has-error");
   shortAnswer.classList.remove("has-error");
   fieldMessage.classList.remove("error");
-  fieldMessage.textContent = "Conte com suas palavras.";
+  fieldMessage.textContent = steps[current].type === "long-text" ? "Conte com suas palavras." : "";
 }
 
 function showFieldError(message = "Escreva uma resposta para continuar.") {
@@ -182,17 +182,8 @@ function handleInput(event) {
   if (event.target.value.trim()) clearError();
 }
 
-function handleShortcut(event) {
-  if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
-    event.preventDefault();
-    form.requestSubmit();
-  }
-}
-
 answer.addEventListener("input", handleInput);
 shortAnswer.addEventListener("input", handleInput);
-answer.addEventListener("keydown", handleShortcut);
-shortAnswer.addEventListener("keydown", handleShortcut);
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
